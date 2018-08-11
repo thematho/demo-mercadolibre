@@ -1,12 +1,12 @@
 import angular from 'angular';
-import Home from './home/home';
-import Item from './item/item';
-import About from './about/about';
+import ItemDetailsModule from './item-details/item-details';
+import SearchModule from './search/search';
+import SearchResultModule from './search-result/search-result';
 
 let componentModule = angular.module('app.components', [
-  Home,
-  Item,
-  About
+  SearchModule,
+  SearchResultModule,
+  ItemDetailsModule,
 ])
 
 .name;
