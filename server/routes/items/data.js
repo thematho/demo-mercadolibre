@@ -6,7 +6,7 @@ const fs = require('fs'),
 
 fs.readFile(jsonPath, { encoding: 'utf8' }, (err, data)=> {
     if (err) throw err;
-    items = JSON.parse(data);
+    items = JSON.parse(data).results;
 });
 
 module.exports = {

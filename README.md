@@ -3,8 +3,9 @@ This is a code example for MercadoLibre Front-End position and uses a modified v
 https://github.com/thematho/NG6-starter/tree/without_classes
 
 ## Run the application
-- On the command prompt and run `npm i`
-- Run `npm start` to run local server on url: [localhost:3000](localhost:3000)
+- On the command prompt and run `npm i`.
+- Run `npm run build` to build the AngularJS project.
+- Run `npm start` to run local server on url: [localhost:8080](localhost:8080).
 - Run `npm test` to execute UT.
 
 ---

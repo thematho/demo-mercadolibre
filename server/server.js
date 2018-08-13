@@ -21,8 +21,11 @@ middlewareList.forEach((middleware) => {
 routes.forEach((route) => {
     router[route.method](route.path, route.handler);
 });
-// 
+
 app.use('/api', router);
+
+// Pre-renderer for SEO with AngularJS
+app.use(require('prerender-node').set('prerenderToken', 'ywZYSnwlRNo6922dy2xq'));
 
 app.listen(port);
 console.log(`on port ${port}`);
