@@ -9,11 +9,11 @@ function AppRouting($stateProvider, $urlRouterProvider,) {
       component: 'app',
     })
     .state('app.results', {
-      url: '/items?search',
+      url: 'items?search',
       component: 'searchResult',
     })
     .state('app.details', {
-      url: '/items/:id',
+      url: 'items/:id',
       component: 'itemDetails',
       resolve: {
         id: function($transition$) {
