@@ -1,4 +1,10 @@
-<div>
-  <h1>{{ $ctrl.name }}</h1> 
-  <button ng-click="$ctrl.search()">Search</button>
-</div>
+<img srcset="/assets/Logo_ML.png 1000w,
+             /assets/Logo_ML@2x.jpg 2000w"
+  sizes="(max-width: 1280px) 280px,
+             (max-width: 1920px) 440px"
+  alt="MercadoLibre">
+<input type="search"
+  ng-model="$ctrl.searchParam"
+  on-enter="$ctrl.onAction($ctrl.searchParam)">
+<button class="search-btn"
+  ng-click="$ctrl.onAction($ctrl.searchParam)">Search</button>

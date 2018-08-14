@@ -15,7 +15,10 @@ const component = {
   //  onDelete: '&' function as callbacks to component events.
   //                Instead of manipulating Input Data, the component calls
   //                the correct Output Event with the changed data.
-  bindings: {},
+  bindings: {
+    onSearch: '&',
+    searchParam: '<'
+  },
   template,
   controller
 };
