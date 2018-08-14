@@ -11,6 +11,9 @@ const routes = require('./routes/routes'),
 app.use(express.static('dist'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.all("/*", function (req, res, next) {
+    res.sendFile("index.html", { root: __dirname + "./../dist" });
+});
 
 // Load Middleware functions
 middlewareList.forEach((middleware) => {
