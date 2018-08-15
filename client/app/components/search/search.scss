@@ -10,9 +10,12 @@ search {
     width: 44px;
     height: 38px;
     margin: 0 15px;
-    background: url('/assets/Logo_ML@2x.png') center no-repeat;
+    background: url('/assets/Logo_ML.png') center no-repeat;
     background-size: contain;
     cursor: pointer;
+    @include media-xl() {
+      background-image: url('/assets/Logo_ML@2x.png');
+    }
   }
   .search-wrapper {
     display: flex;
@@ -40,9 +43,8 @@ search {
       border-width: 0;
       border-radius: 0 4px 4px 0;
       background-image: url('/assets/ic_Search.png');
+      background-size: contain;
       @include media-xl() {
-        width: 40px;
-        height: 40px;
         background-image: url('/assets/ic_Search@2x.png');
       }
     }
