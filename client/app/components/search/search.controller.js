@@ -7,6 +7,9 @@ function SearchController() {
       return this.onSearch({ searchParam: searchParam });
     }
   };
+  $ctrl.$onInit = () => {
+    this.searchPlaceholder = 'Nunca dejes de buscar';
+  };
 }
 
 export default SearchController;

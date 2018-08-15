@@ -1,4 +1,48 @@
 @import '../../common/styles/colors.scss';
+@import '../../common/styles/media.scss';
+$btn-bkg-color: $main-bkg-color;
 search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: $search-bar-bkg-color;
+  .search__logo {
+    width: 44px;
+    height: 44px;
+    margin: 10px;
+    background: url('/assets/Logo_ML@2x.png') center no-repeat;
+    background-size: contain;
+    cursor: pointer;
+  }
+  .search-wrapper {
+    display: flex;
+    width: 600px;
+    margin: 6px;
+  }
+  .search__input {
+    flex-grow: 1;
+    padding: 6px 9px;
+    border: none;
+    border-radius: 3px 0 0 3px;
+  }
+  .search-btn {
+    display: flex;
+    padding: 0 8px;
+    border: none;
+    border-radius: 0 3px 3px 0;
+    background-color: $btn-bkg-color;
+    .search-btn__icon {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      border-width: 0;
+      border-radius: 0 4px 4px 0;
+      background-image: url('/assets/ic_Search.png');
+      @include media-xl() {
+        width: 40px;
+        height: 40px;
+        background-image: url('/assets/ic_Search@2x.png');
+      }
+    }
+  }
 }

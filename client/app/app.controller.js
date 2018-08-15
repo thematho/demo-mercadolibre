@@ -2,9 +2,7 @@ function AppController($state, $stateParams, ItemsService) {
     'ngInject';
     let $ctrl = this;
     this.search = (searchParam) => {
-        $state.go('app.results', {
-            search: searchParam, result: result
-        });
+        $state.go('app.results', { search: searchParam });
     };
 
     $ctrl.$onInit = () => {
