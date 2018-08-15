@@ -32,6 +32,7 @@
     "fs-walk": "0.0.1",
     "gulp": "^3.9.1",
     "gulp-util": "^3.0.7",
+    "gulp-watch": "^5.0.1",
     "html-webpack-plugin": "^1.7.0",
     "inquirer-directory": "^2.1.0",
     "karma": "^0.13.22",
@@ -52,7 +53,7 @@
     "sinon": "^2.1.0",
     "style-loader": "^0.12.2",
     "supports-color": "^3.1.2",
-    "webpack": "^1.13.3",
+    "webpack": "^1.15.0",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.6.0"
   },
@@ -66,7 +67,7 @@
     "serve": "gulp serve",
     "start": "node ./server/server.js",
     "test": "karma start",
-    "watch": "gulp serve",
+    "watch": "gulp watch",
     "webpack": "gulp webpack"
   },
   "keywords": [

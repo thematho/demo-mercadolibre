@@ -1,15 +1,16 @@
 'use strict';
 
-import gulp     from 'gulp';
-import webpack  from 'webpack';
-import path     from 'path';
-import gutil    from 'gulp-util';
-import serve    from 'browser-sync';
-import del      from 'del';
+import gulp from 'gulp';
+import watch from 'gulp-watch';
+import webpack from 'webpack';
+import path from 'path';
+import gutil from 'gulp-util';
+import serve from 'browser-sync';
+import del from 'del';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
-import colorsSupported      from 'supports-color';
-import historyApiFallback   from 'connect-history-api-fallback';
+import colorsSupported from 'supports-color';
+import historyApiFallback from 'connect-history-api-fallback';
 
 let root = 'client';
 
@@ -45,10 +46,26 @@ gulp.task('webpack', ['clean'], (cb) => {
   config.entry.app = paths.entry;
 
   webpack(config, (err, stats) => {
-    if(err)  {
+    if (err) {
       throw new gutil.PluginError("webpack", err);
     }
 
+    gutil.log("[webpack]", stats.toString({
+      colors: colorsSupported,
+      chunks: false,
+      errorDetails: true
+    }));
+
+    cb();
+  });
+});
+
+gulp.task('dev-server-build', ['clean'], (cb) => {
+  const config = require('./webpack.dev-server.config');
+  config.entry.app = paths.entry;
+
+  webpack(config, (err, stats) => {
+    if (err) throw new gutil.PluginError("webpack", err);
     gutil.log("[webpack]", stats.toString({
       colors: colorsSupported,
       chunks: false,
@@ -73,7 +90,7 @@ gulp.task('serve', () => {
   serve({
     port: process.env.PORT || 3000,
     open: false,
-    server: {baseDir: root},
+    server: { baseDir: root },
     middleware: [
       historyApiFallback(),
       webpackDevMiddleware(compiler, {
@@ -89,7 +106,11 @@ gulp.task('serve', () => {
   });
 });
 
-gulp.task('watch', ['serve']);
+gulp.task('watch', function () {
+  watch('client/**/*.*', { ignoreInitial: false }, function () {
+    gulp.run(['dev-server-build']);
+  });
+});
 
 gulp.task('clean', (cb) => {
   del([paths.dest]).then(function (paths) {
