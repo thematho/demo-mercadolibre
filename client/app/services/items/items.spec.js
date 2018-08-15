@@ -1,7 +1,7 @@
 import ItemsModule from './items';
 import ItemsService from './items.service';
 
-describe('Module ng6Starter.items', () => {
+describe('Module app.items', () => {
 
   // Load involved Modules
   beforeEach(window.module(ItemsModule));

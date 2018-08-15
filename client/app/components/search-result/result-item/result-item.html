@@ -1,0 +1,7 @@
+<img ng-src="{{::$ctrl.item.thumbnail}}"
+  alt="Foto del producto">
+<div class="description">
+  <span>${{::$ctrl.item.price}}</span>
+  <span>{{::$ctrl.item.title}}</span>
+</div>
+<div class="location">{{::$ctrl.item.seller_address.state.name}}</div>

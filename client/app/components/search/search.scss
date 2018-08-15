@@ -8,15 +8,15 @@ search {
   background-color: $search-bar-bkg-color;
   .search__logo {
     width: 44px;
-    height: 44px;
-    margin: 10px;
+    height: 38px;
+    margin: 0 15px;
     background: url('/assets/Logo_ML@2x.png') center no-repeat;
     background-size: contain;
     cursor: pointer;
   }
   .search-wrapper {
     display: flex;
-    width: 600px;
+    width: 700px;
     margin: 6px;
   }
   .search__input {
@@ -24,6 +24,7 @@ search {
     padding: 6px 9px;
     border: none;
     border-radius: 3px 0 0 3px;
+    outline: none;
   }
   .search-btn {
     display: flex;
@@ -31,6 +32,7 @@ search {
     border: none;
     border-radius: 0 3px 3px 0;
     background-color: $btn-bkg-color;
+    outline: none;
     .search-btn__icon {
       display: inline-block;
       width: 18px;

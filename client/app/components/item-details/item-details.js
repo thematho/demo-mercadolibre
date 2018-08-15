@@ -3,6 +3,6 @@ import uiRouter from '@uirouter/angularjs';
 import component from './item-details.component';
 
 export default angular
-  .module('ng6Starter.itemDetails', [uiRouter])
+  .module('app.itemDetails', [uiRouter])
   .component('itemDetails', component)
   .name;

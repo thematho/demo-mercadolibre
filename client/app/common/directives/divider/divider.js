@@ -1,9 +1,9 @@
 import angular from 'angular';
-import linkFunction from './on-enter.directive';
+import linkFunction from './divider.directive';
 
 export default angular
-  .module('app.common.directives.onEnter', [])
-  .directive('onEnter', () => {
+  .module('app.divider', [])
+  .directive('divider', () => {
     return {
       restrict: 'A',
       link: linkFunction

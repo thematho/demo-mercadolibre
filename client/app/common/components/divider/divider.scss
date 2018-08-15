@@ -1,0 +1,5 @@
+@import './../../styles/colors.scss';
+$border-color: $description-font-color;
+divider {
+  border: solid 1px $border-color;
+}

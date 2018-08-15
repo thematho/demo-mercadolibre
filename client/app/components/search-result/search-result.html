@@ -1,4 +1,8 @@
-<div>
-  <h1>{{ $ctrl.name }}</h1>
-  <span ng-click="$ctrl.openDetails()">See Details</span>
-</div>
+<result-item item="item"
+  ng-click="::$ctrl.onItemClick(item.id)"
+  ng-repeat-start="item in $ctrl.results">
+</result-item>
+<divider ng-if="!$last"
+  ng-repeat-end></divider>
+<div class="no-results"
+  ng-if="!$ctrl.results.length"></div>

@@ -3,7 +3,7 @@ import component from './search.component';
 import onEnterDirective from '../../common/directives/on-enter/on-enter';
 
 export default angular
-  .module('ng6Starter.search', [
+  .module('app.search', [
     onEnterDirective,
   ])
   .component('search', component)

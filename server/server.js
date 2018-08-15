@@ -8,13 +8,6 @@ const express = require('express'),
 const routes = require('./routes/routes'),
     middlewareList = require('./middleware/middleware');
 
-app.use(express.static('dist'));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.all("/*", function (req, res, next) {
-    res.sendFile("index.html", { root: __dirname + "./../dist" });
-});
-
 // Load Middleware functions
 middlewareList.forEach((middleware) => {
     app.use(middleware);
@@ -24,8 +17,16 @@ middlewareList.forEach((middleware) => {
 routes.forEach((route) => {
     router[route.method](route.path, route.handler);
 });
-
 app.use('/api', router);
+
+app.use(express.static('dist'));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.all("/*", function (req, res, next) {
+    res.sendFile("index.html", { root: __dirname + "./../dist" });
+});
+
+
 
 // Pre-renderer for SEO with AngularJS
 app.use(require('prerender-node').set('prerenderToken', 'ywZYSnwlRNo6922dy2xq'));

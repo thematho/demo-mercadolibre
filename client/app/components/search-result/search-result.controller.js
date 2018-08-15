@@ -3,14 +3,14 @@ function SearchResultController($state, $stateParams, ItemsService) {
 
   let $ctrl = this;
 
-  this.openDetails = () => {
-    $state.go('app.details', { id: 1 });
+  this.onItemClick = (id) => {
+    $state.go('app.details', { id });
   }
 
   $ctrl.$onInit = () => {
     ItemsService.search($stateParams.search)
-      .then((result) => {
-
+      .then((response) => {
+        this.results = response.results;
       });
   };
 
