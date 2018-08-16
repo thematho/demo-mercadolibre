@@ -1,12 +1,24 @@
+@import '../../common/styles/colors.scss';
+$result-margin: 16px;
 search-result {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  .categories {}
+  align-items: flex-start;
+  width: 800px;
+  .categories {
+    margin: $result-margin 0;
+    font-size: 14px;
+    >a {
+      color: $description-font-color;
+      text-decoration: none;
+    }
+  }
   .results-container {
-    background-color: #FFF; 
+    padding: 16px;
+    background-color: #FFF;
     result-item {
       cursor: pointer;
     }
+    
   }
 }

@@ -9,6 +9,7 @@ function SearchResultController($state, $stateParams, ItemsService, CategoriesSe
           this.category = response;
         });
     };
+    
   this.onItemClick = (id) => {
     $state.go('app.details', { id });
   };

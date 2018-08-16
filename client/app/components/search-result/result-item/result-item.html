@@ -1,7 +1,13 @@
 <img ng-src="{{::$ctrl.item.thumbnail}}"
   alt="Foto del producto">
 <div class="description">
-  <span>${{::$ctrl.item.price}}</span>
-  <span>{{::$ctrl.item.title}}</span>
+  <div class="description__price">
+    <span>
+      {{::$ctrl.item.price | currency}}
+    </span>
+    <span class="description__shipping-icon"
+      ng-if="$ctrl.item.shipping.free_shipping"></span>
+  </div>
+  <div>{{::$ctrl.item.title}}</div>
 </div>
 <div class="location">{{::$ctrl.item.seller_address.state.name}}</div>

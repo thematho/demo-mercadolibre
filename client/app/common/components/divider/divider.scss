@@ -1,5 +1,7 @@
 @import './../../styles/colors.scss';
-$border-color: $description-font-color;
+$border-color: $main-bkg-color;
 divider {
-  border: solid 1px $border-color;
+  display: block;
+  width: 100%;
+  border-bottom: solid 1px $border-color;
 }

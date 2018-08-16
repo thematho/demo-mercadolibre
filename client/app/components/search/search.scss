@@ -9,7 +9,7 @@ search {
   .search__logo {
     width: 44px;
     height: 38px;
-    margin: 0 15px;
+    margin-right: 20px;
     background: url('/assets/Logo_ML.png') center no-repeat;
     background-size: contain;
     cursor: pointer;
@@ -19,7 +19,7 @@ search {
   }
   .search-wrapper {
     display: flex;
-    width: 700px;
+    width: 800px;
     margin: 6px;
   }
   .search__input {

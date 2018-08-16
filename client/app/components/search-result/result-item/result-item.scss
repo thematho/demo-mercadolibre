@@ -1,1 +1,47 @@
-result-item {}
+@import '../../../common/styles/colors.scss';
+@import '../../../common/styles/media.scss';
+// @import './../search-result.scss';
+
+$img-size: 180px;
+
+result-item {
+  display: flex;
+  margin: 16px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  >img {
+    width: $img-size;
+    height: $img-size;
+    border-radius: 4px;
+  }
+  .description {
+    flex-grow: 1;
+    margin: 16px 0 0 16px;
+    font-size: 18px;
+    .description__price {
+      display: flex;
+      align-items: center;
+      margin-bottom: 32px;
+      font-size: 24px;
+    }
+    .description__shipping-icon {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin: 0 10px;
+      background: url('/assets/ic_shipping.png') center no-repeat;
+      background-size: contain;
+      @include media-xl() {
+        background-image: url('/assets/ic_shipping@2x.png');
+      }
+    }
+  }
+  .location {
+    width: 100px;
+    margin: 0 10px;
+    padding-top: 16px;
+    font-size: 12px;
+    color: $description-font-color;
+  }
+}
