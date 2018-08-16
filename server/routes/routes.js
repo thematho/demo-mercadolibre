@@ -1,4 +1,4 @@
-const itemRoutes = require('./items/items.routes');
-const routes = [].concat(itemRoutes);
+const itemsRoutes = require('./items/items.routes');
+const categoriesRoutes = require('./categories/categories.routes');
 
-module.exports = routes;
+module.exports =  itemsRoutes.concat(categoriesRoutes);

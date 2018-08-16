@@ -17,6 +17,7 @@ middlewareList.forEach((middleware) => {
 routes.forEach((route) => {
     router[route.method](route.path, route.handler);
 });
+
 app.use('/api', router);
 
 app.use(express.static('dist'));
