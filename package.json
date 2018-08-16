@@ -1,7 +1,7 @@
 {
-  "name": "ng6-starter",
+  "name": "app",
   "version": "0.0.1",
-  "description": "Starter for Angular + ES6 + (Webpack or JSPM)",
+  "description": "Code example for MercadoLibre Front-End position",
   "main": "index.js",
   "dependencies": {
     "@uirouter/angularjs": "^1.0.19",
