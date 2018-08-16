@@ -1,10 +1,7 @@
 function ItemsService($resource) {
   'ngInject';
 
-  this.itemsAPI = $resource('http://localhost:8080/api/items', { id: '@id' }, {
-    headers: {
-      'Access-Control-Allow-Origin': '* '
-    },
+  this.itemsAPI = $resource('http://localhost:8080/api/items/:id', {}, {
     get: {
       method: 'GET'
     },
@@ -14,7 +11,7 @@ function ItemsService($resource) {
   });
 
   let search = (searchParams) => {
-    return this.itemsAPI
+    return this.itemsAPI  
       .query({ search: searchParams })
       .$promise;
   };
