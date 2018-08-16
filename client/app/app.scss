@@ -1,6 +1,8 @@
 @import "common/styles/colors";
 
-.app {
+app {
   height: 100%;
-  background-color: $main-bkg-color;
+  .content {
+    background-color: $main-bkg-color;
+  }
 }
