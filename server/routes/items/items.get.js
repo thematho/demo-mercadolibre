@@ -3,6 +3,8 @@ const API_URL = require('./../config').API_URL;
 const getDescription = require('./items.description');
 
 const getFormattedItem = (item, description) => {
+    let decimals = Number(item.price).toFixed(2).toString().split('.')[1];
+
     return {
         author: {
             name: 'Matias',
@@ -14,7 +16,7 @@ const getFormattedItem = (item, description) => {
             price: {
                 currency: item.currency_id,
                 amount: Math.floor(item.price),
-                decimals: item.price % 1
+                decimals: Number(decimals)
             },
             picture: item.pictures[0].url,
             condition: item.condition,

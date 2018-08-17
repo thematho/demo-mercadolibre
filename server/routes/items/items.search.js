@@ -3,13 +3,14 @@ const config = require('./../config');
 const getCategories = require('./../categories/getCategories');
 
 const formatItem = (item) => {
+    let decimals = Number(item.price).toFixed(2).toString().split('.')[1];
     return {
         id: item.id,
         title: item.title,
         price: {
             currency: item.currency_id,
             amount: Math.floor(item.price),
-            decimals: item.price % 1
+            decimals: Number(decimals)
         },
         picture: item.thumbnail,
         location: item.seller_address.state.name,
