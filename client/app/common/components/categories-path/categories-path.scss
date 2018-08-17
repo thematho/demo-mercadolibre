@@ -1,6 +1,7 @@
 @import './../../styles/colors.scss';
+@import './../../styles/variables.scss';
 categories-path {
-  margin: 16px 0;
+  margin: $margin-size-sm 0;
   font-size: 14px;
   >a {
     color: $description-font-color;

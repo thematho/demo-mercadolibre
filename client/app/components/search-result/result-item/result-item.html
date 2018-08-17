@@ -2,8 +2,9 @@
   alt="Foto del producto">
 <div class="description">
   <div class="description__price">
-    <span>
-      $ {{$ctrl.item.price.amount + ',' + $ctrl.item.price.decimals}}
+    <span>$ {{$ctrl.item.price.amount | number: fractionSize}}
+    </span>
+    <span>{{$ctrl.item.price.decimals || '00'}}
     </span>
     <span class="description__shipping-icon"
       ng-if="$ctrl.item.free_shipping"></span>

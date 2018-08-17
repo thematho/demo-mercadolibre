@@ -1,7 +1,19 @@
+$md-screen: 970px;
 $lg-screen: 1280px;
 $xl-screen: 1920px;
 
 // Media Queries Mixins
+@mixin media-st-md {
+    @media (max-width: #{$md-screen - 1px}) {
+        @content;
+    }
+}
+
+@mixin media-md {
+    @media (min-width: #{$md-screen}) {
+        @content;
+    }
+}
 @mixin media-st-lg {
     @media (max-width: #{$lg-screen - 1px}) {
         @content;

@@ -1,8 +1,10 @@
 @import './common/common';
+@import './common/styles/variables';
 app {
   height: 100%;
   .content {
     display: flex;
     justify-content: center;
+    padding-bottom: $margin-size-md;
   }
 }

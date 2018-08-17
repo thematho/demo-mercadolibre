@@ -1,29 +1,32 @@
 @import '../../../common/styles/colors.scss';
 @import '../../../common/styles/media.scss';
-// @import './../search-result.scss';
-
+@import '../../../common/styles/variables.scss';
 $img-size: 180px;
-
 result-item {
   display: flex;
-  padding: 16px;
+  padding: $margin-size-sm;
   &:last-child {
     margin-bottom: 0;
   }
   >img {
     width: $img-size;
     height: $img-size;
-    border-radius: 4px;
+    border-radius: $border-radius;
   }
   .description {
     flex-grow: 1;
-    margin: 16px 0 0 16px;
+    margin: $margin-size-sm 0 0 $margin-size-sm;
     font-size: 18px;
     .description__price {
-      display: flex;
-      align-items: center;
-      margin-bottom: 32px;
+      margin-bottom: $margin-size-md;
       font-size: 24px;
+      >span {
+        white-space: nowrap;
+      }
+      >span:last-child {
+        vertical-align: super;
+        font-size: 12px;
+      }
     }
     .description__shipping-icon {
       display: inline-block;
@@ -40,7 +43,7 @@ result-item {
   .location {
     width: 100px;
     margin: 0 10px;
-    padding-top: 16px;
+    padding-top: $margin-size-sm;
     font-size: 12px;
     color: $description-font-color;
   }

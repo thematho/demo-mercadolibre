@@ -1,14 +1,23 @@
 @import '../../common/styles/colors.scss';
+@import '../../common/styles/media.scss';
+@import '../../common/styles/variables.scss';
 $result-margin: 16px;
 search-result {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: flex-start;
-  width: 800px;
-  border-radius: 4px;
-
+  width: $content-size;
+  border-radius: $border-radius;
+  @include media-st-md() {
+    width: $content-size-small;
+  }
+  categories-path  {
+    width: 100%;
+  }
   .results-container {
-    padding: 16px;
+    width: 100%;
+    padding: $margin-size-sm;
+    border-radius: $border-radius;
     background-color: #FFF;
     result-item {
       cursor: pointer;
