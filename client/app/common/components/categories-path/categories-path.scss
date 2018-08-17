@@ -1,0 +1,9 @@
+@import './../../styles/colors.scss';
+categories-path {
+  margin: 16px 0;
+  font-size: 14px;
+  >a {
+    color: $description-font-color;
+    text-decoration: none;
+  }
+}
