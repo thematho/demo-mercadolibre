@@ -2,7 +2,6 @@ function ResultItemController() {
   'ngInject';
 
   let $ctrl = this;
-  this.name = 'resultItem';
 
   /* Component's Lifecycle /*
   /**

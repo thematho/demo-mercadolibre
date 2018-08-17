@@ -1,8 +1,12 @@
 function ItemsService($resource) {
   'ngInject';
 
-  this.itemsAPI = $resource('http://localhost:8080/api/items/:id', {}, {
+  this.itemsAPI = $resource('/api/items/:id', {}, {
     get: {
+      method: 'GET'
+    },
+    getDescription: {
+      url: '/api/items/:id/description',
       method: 'GET'
     },
     query: {
@@ -10,20 +14,26 @@ function ItemsService($resource) {
     }
   });
 
-  let search = (searchParams) => {
-    return this.itemsAPI  
-      .query({ search: searchParams })
-      .$promise;
-  };
-  let get = (id) => {
+  let search = (searchParam) => {
     return this.itemsAPI
-      .get({ id: id })
+      .query({ q: searchParam })
       .$promise;
-  };
+  },
+    get = (id) => {
+      return this.itemsAPI
+        .get({ id: id })
+        .$promise;
+    },
+    getDescription = (id) => {
+      return this.itemsAPI
+        .getDescription({ id: id })
+        .$promise;
+    };
 
   return {
     search,
-    get
+    get,
+    getDescription
   };
 }
 

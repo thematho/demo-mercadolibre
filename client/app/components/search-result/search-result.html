@@ -1,16 +1,12 @@
-<div class="categories">
-  <a href=""
-    title="Navegacion no implementada para Demo"
-    ng-repeat="path in $ctrl.category.path_from_root">
-    {{::path.name}}{{ !$last? ' > ' : '' }}</a>
-</div>
-<div class="results-container">
+<categories-path path-list="$ctrl.categories"></categories-path>
+<div class="results-container"
+  ng-if="$ctrl.items">
   <result-item item="item"
-    ng-click="::$ctrl.onItemClick(item.id)"
-    ng-repeat-start="item in $ctrl.results">
+    ng-click="::$ctrl.onItemClick(item.id, item.categories)"
+    ng-repeat-start="item in $ctrl.items">
   </result-item>
   <divider ng-if="!$last"
     ng-repeat-end></divider>
   <div class="no-results"
-    ng-if="!$ctrl.results.length"></div>
+    ng-if="!$ctrl.items.length"></div>
 </div>
