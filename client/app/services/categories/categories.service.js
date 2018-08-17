@@ -1,7 +1,7 @@
 function CategoriesService($resource) {
   'ngInject';
 
-  this.categoriesAPI = $resource('http://localhost:8080/api/categories/:id', { }, {
+  this.categoriesAPI = $resource('/api/categories/:id', { }, {
     get: {
       method: 'GET',
       isArray: true
