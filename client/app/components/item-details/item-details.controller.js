@@ -1,34 +1,35 @@
-function ItemDetailsController() {
+function ItemDetailsController($stateParams, ItemsService, CategoriesService) {
   'ngInject';
 
   let $ctrl = this;
-  this.name = 'itemDetails';
 
-  /* Component's Lifecycle /*
-  /**
-   * Called on each controller after all the controllers on an element have been
-   *  constructed and had their bindings initialized.
-   */
-  $ctrl.$onInit = () => {};
-  /**
-   * Called whenever one-way bindings are updated.
-   * @param  {[Object]} changesObj Has of bound properties that have changed.
-   */
-  $ctrl.$onChanges = (changes) => {};
-  /**
-   * Called on each turn of the digest cycle.
-   */
-  $ctrl.$doCheck = () => {};
-  /**
-   * Called on a controller when its containing scope is destroyed.
-   * Use this hook for releasing external resources, watches and event handlers.
-   */
-  $ctrl.$onDestroy = () => {};
-  /**
-   * Called after this controller's element and its children have been linked.
-   * Use this to set up DOM event handlers and do direct DOM manipulation.
-   */
-  $ctrl.$postLink = () => {};
+  let getCategoriesPath = (categoryId) => {
+    CategoriesService.get(categoryId)
+      .then((response) => {
+        this.categories = response;
+      });
+  };
+
+  this.getConditionText = () => {
+    if (this.item) {
+      let condition = this.item.condition === 'new' ? 'Nuevo' : 'Usado';
+      return `${condition} - ${this.item.sold_quantity} Vendidos`;
+    }
+    return '';
+  };
+
+  $ctrl.$onInit = () => {
+    this.categories = $stateParams.categories;
+    ItemsService.get($stateParams.id)
+      .then((response) => {
+        this.item = response.item;
+      })
+      .then(() => {
+        if (!$stateParams.categories) {
+          getCategoriesPath(this.item.category_id);
+        }
+      });
+  };
 }
 
 export default ItemDetailsController;

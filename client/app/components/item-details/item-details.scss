@@ -1,3 +1,24 @@
 item-details {
-  color: red;
+  .item-container {
+    >img {}
+    .header {
+      .header__sales {        font-size: 14px;
+      }
+      .header__title {
+        font-size: 24px;
+      }
+      .header__price {
+        font-size: 46px;
+      }
+      .buy-btn {}
+    }
+  }
+  .item__description {
+    >h1 {
+      font-size: 28px;
+    }
+    >p {
+      font-size: 16px;
+    }
+  }
 }
