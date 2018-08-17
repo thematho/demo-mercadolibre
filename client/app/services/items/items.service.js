@@ -1,9 +1,10 @@
-function ItemsService($resource) {
+function ItemsService($resource, $http, TransformItemResponse) {
   'ngInject';
 
   this.itemsAPI = $resource('/api/items/:id', {}, {
     get: {
-      method: 'GET'
+      method: 'GET',
+      transformResponse: $http.defaults.transformResponse.concat(TransformItemResponse)
     },
     getDescription: {
       url: '/api/items/:id/description',

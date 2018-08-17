@@ -1,6 +1,6 @@
 const request = require('request');
 const config = require('./../config');
-const getCategories = require('./../categories/categories.get');
+const getCategories = require('./../categories/getCategories');
 
 const formatItem = (item) => {
     return {

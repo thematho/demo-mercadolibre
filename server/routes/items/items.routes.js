@@ -7,7 +7,7 @@ module.exports = [
         method: 'get',
         path: '/items/:id',
         handler: require('./items.get')
-    },
+    }
 ];
 
 

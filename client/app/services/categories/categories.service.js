@@ -3,7 +3,8 @@ function CategoriesService($resource) {
 
   this.categoriesAPI = $resource('http://localhost:8080/api/categories/:id', { }, {
     get: {
-      method: 'GET'
+      method: 'GET',
+      isArray: true
     }
   });
 

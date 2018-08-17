@@ -3,10 +3,10 @@ function SearchResultController($state, $stateParams, ItemsService, CategoriesSe
 
   let $ctrl = this;
 
-  this.onItemClick = (id, categoryId) => {
+  this.onItemClick = (id, categories) => {
     $state.go('app.details', {
       id,
-      categoryId
+      categories
     });
   };
 
