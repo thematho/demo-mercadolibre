@@ -33,16 +33,19 @@ module.exports = (req, res) => {
                     categories: [],
                     items: jsonRes.results.map(formatItem)
                 };
-
-                getCategories(jsonRes.results[0].category_id)
-                    .then((categories) => {
-                        mappedResults.categories = categories.path_from_root;
-                        res.json(mappedResults);
-                    })
-                    .catch((err) => {
-                        console.log('Érror getting categories', err)
-                        res.json({ err: err });
-                    });
+                if (jsonRes.results.length) {
+                    getCategories(jsonRes.results[0].category_id)
+                        .then((categories) => {
+                            mappedResults.categories = categories.path_from_root;
+                            res.json(mappedResults);
+                        })
+                        .catch((err) => {
+                            console.log('Érror getting categories', err)
+                            res.json({ err: err });
+                        });
+                } else {
+                    res.json(mappedResults);
+                }
             } else {
                 res.status(500)
                     .send(`ML search API error, code ${response.statusCode}.

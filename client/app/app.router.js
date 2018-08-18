@@ -1,6 +1,6 @@
-function AppRouting($stateProvider, $urlRouterProvider,) {
-    'ngInject';
-    //Routing
+function AppRouting($stateProvider, $urlRouterProvider) {
+  'ngInject';
+  //Routing
   $urlRouterProvider.otherwise('/');
 
   $stateProvider
@@ -14,13 +14,8 @@ function AppRouting($stateProvider, $urlRouterProvider,) {
     })
     .state('app.details', {
       url: 'items/:id',
-      component: 'itemDetails',
-      resolve: {
-        id: function($transition$) {
-          return $transition$.params().id;
-        }
-      }
-    })
+      component: 'itemDetails'
+    });
 }
 
 export default AppRouting;

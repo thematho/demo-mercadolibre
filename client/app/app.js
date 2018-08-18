@@ -22,7 +22,20 @@ angular.module('app', [
     "ngInject";
     // @see: https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions
     // #how-to-configure-your-server-to-work-with-html5mode
-    $locationProvider.html5Mode(true).hashPrefix('!');
+    $locationProvider.html5Mode(true);
   })
+  .run(($state, $transitions) => {
+    "ngInject";
 
+    $transitions.onStart({ to: 'app.results' }, (trans) => {
+      if (!trans.params().search) {
+        return $state.target('app');
+      }
+    });
+    $transitions.onStart({ to: 'app.details' }, (trans) => {  
+      if (trans.params().id === '') {
+        return $state.target('app');
+      }
+    });
+  })
   .component('app', AppComponent);

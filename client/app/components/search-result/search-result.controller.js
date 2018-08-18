@@ -12,10 +12,14 @@ function SearchResultController($state, $stateParams, ItemsService, CategoriesSe
 
 
   $ctrl.$onInit = () => {
+    this.searching = true;
     ItemsService.search($stateParams.search)
       .then((response) => {
         this.items = response.items;
         this.categories = response.categories;
+        this.searching = false;
+      }, () => {
+        this.searching = false;
       });
   };
 }
