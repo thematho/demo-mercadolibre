@@ -28,6 +28,10 @@ config.plugins = config.plugins.concat([
     to: 'assets'
   }]),
 
+  new CopyWebpackPlugin([{
+    from: 'client/google515057b07800eeac.html',
+    to: './google515057b07800eeac.html'
+  }]),
 ]);
 
 module.exports = config;

@@ -27,8 +27,6 @@ app.all("/*", function (req, res, next) {
     res.sendFile("index.html", { root: __dirname + "./../dist" });
 });
 
-
-
 // Pre-renderer for SEO with AngularJS
 app.use(require('prerender-node').set('prerenderToken', 'ywZYSnwlRNo6922dy2xq'));
 
