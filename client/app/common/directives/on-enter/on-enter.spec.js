@@ -11,7 +11,7 @@ describe('Directive: on-enter', () => {
     $compile = $injector.get('$compile');
     $timeout = $injector.get('$timeout');
     $scope = $injector.get('$rootScope').$new();
-    htmlStr = `<input id="testInput" type="text" test/>`;
+    htmlStr = `<input id="testInput" type="text" on-input="doTest()"/>`;
     // Make Angular resolve the string
     el = angular.element(htmlStr);
 
@@ -23,9 +23,28 @@ describe('Directive: on-enter', () => {
 
   }));
 
-  it('input text should have focus [REMOVE]' , () => {
-    let spy = sinon.spy(el[0], 'focus');
-    expect(spy.focus).to.have.been.calledOnce;
+  it('input text should have focus [REMOVE]', () => {
+    let testFn = () => {},
+      stub = sinon.stub(),
+      event = document.createEvent("KeyboardEvent");
+    let initMethod = typeof event.initKeyboardEvent !== 'undefined' ? "initKeyboardEvent" : "initKeyEvent";
+
+    event[initMethod](
+      "keydown", // event type : keydown, keyup, keypress
+      true, // bubbles
+      true, // cancelable
+      window, // viewArg: should be window
+      false, // ctrlKeyArg
+      false, // altKeyArg
+      false, // shiftKeyArg
+      false, // metaKeyArg
+      13, // keyCodeArg : unsigned long the virtual key code, else 0
+    );
+    // event.keyCode = 13;
+    $scope.doTest = stub;
+    $scope.$apply();
+    el.find('input').triggerHandler(event);
+    expect(stub).to.have.been.calledOnce;
   });
 });
 

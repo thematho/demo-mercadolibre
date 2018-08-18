@@ -1,51 +1,38 @@
 import categoriesPath from './categories-path'
-import CategoriesPathController from './categories-path.controller';
 import categoriesPathComponent from './categories-path.component';
 import categoriesPathTemplate from './categories-path.html';
 
 describe('Component: categoriesPath', () => {
-  let $rootScope, makeController;
+  let $rootScope, template, scope, element, compiled;
 
   beforeEach(window.module(categoriesPath));
-  beforeEach(inject((_$rootScope_) => {
-    $rootScope = _$rootScope_;
-    makeController = () => {
-      let $ctrl = new CategoriesPathController();
-      $ctrl.$onInit();
-      return $ctrl;
-    };
-  }));
+  beforeEach(function () {
 
-  describe('Module', () => {
-    // top-level specs: i.e., routes, injection, naming
-  });
+    //set our view html.
+    template = '<categories-path path-list="list"></categories-path>';
 
-  describe('Controller', () => {
-    // controller specs
-    it('has a name property [REMOVE]', () => { // erase if removing this.name from the controller
-      let controller = makeController();
-      expect(controller).to.have.property('name');
-    });
-  });
-
-  describe('Template', () => {
-    // template specs
-    // tip: use regex to ensure correct bindings are used e.g., {{  }}
-    it('has name in template [REMOVE]', () => {
-      expect(categoriesPathTemplate).to.match(/{{\s?\$ctrl\.name\s?}}/g);
+    inject(function ($compile, $rootScope) {
+      scope = $rootScope.$new();
+      element = angular.element(template);
+      compiled = $compile(element);
+      compiled(scope);
+      scope.$digest();
     });
   });
 
   describe('Component', () => {
-      // component/directive specs
-      let component = categoriesPathComponent;
+    // component/directive specs
+    let component = categoriesPathComponent;
 
-      it('includes the intended template',() => {
-        expect(component.template).to.equal(categoriesPathTemplate);
-      });
-
-      it('invokes the right controller', () => {
-        expect(component.controller).to.equal(CategoriesPathController);
-      });
+    it('includes the intended template', () => {
+      expect(component.template).to.equal(categoriesPathTemplate);
+    });
+    it('should display proper path', () => {
+      scope.list = [{ name: 'ParentA' }, { name: 'ParentB' }];
+      scope.$apply();
+      let paths = element.find('a');
+      expect(paths[0].text).to.be.equals('ParentA > ');
+      expect(paths[1].text).to.be.equals('ParentB');
+    });
   });
 });
