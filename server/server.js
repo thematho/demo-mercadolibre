@@ -1,5 +1,6 @@
 const express = require('express'),
     bodyParser = require('body-parser'),
+    compression = require('compression'),
     app = express(),
     router = express.Router(),
     port = process.env.PORT || 8080;
@@ -23,6 +24,7 @@ routes.forEach((route) => {
 
 app.use('/api', router);
 
+app.use(compression());
 app.use(express.static('dist'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
