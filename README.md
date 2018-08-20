@@ -2,16 +2,19 @@
 This is a code example for MercadoLibre Front-End position and uses a modified version of the NG6-Starter seed project.
 [https://github.com/thematho/NG6-starter/tree/without_classes](https://github.com/thematho/NG6-starter/tree/without_classes)
 
+## Dependencies
+- [NodeJS](https://nodejs.org) v8+
+- [node-gyp](https://github.com/nodejs/node-gyp) 
 ## Run the application
 - On the command prompt and run `npm install`. This command will not only install the dependencies locally but also generate the build on the `postinstall` phase.
 - Run `npm start` to run local server on url: [localhost:8080](localhost:8080).
 
 ## Live Demo
 You can access the Demo on the following address: [https://mercado-demo.herokuapp.com](https://mercado-demo.herokuapp.com) Every push on github generates an automatic build & deploy on Heroku
+
 ## TODO:
 - Run `npm test` to execute Unit Testing.
 - Run `npm e2e` to execute Unit Testing.
-
 
 Seed Original Readme and commands:
 ---
