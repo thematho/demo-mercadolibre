@@ -43,7 +43,7 @@ let paths = {
 // use webpack.config.js to build modules
 gulp.task('webpack', ['clean'], (cb) => {
   const config = require('./webpack.dist.config');
-  config.entry.app = paths.entry;
+  config.entry.app = paths.entry.concat(config.entry.app);
 
   webpack(config, (err, stats) => {
     if (err) {

@@ -3,12 +3,17 @@ const path = require('path');
 const config = require('./webpack.config');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+config.entry = {
+  app: [
+    path.join(__dirname, 'client/app/app.production.config.js')
+  ]
+};
+
 config.output = {
   filename: '[name].[chunkhash].bundle.js',
   publicPath: '',
   path: path.resolve(__dirname, 'dist')
 };
-console.log(path.resolve(__dirname, 'dist'));
 config.plugins = config.plugins.concat([
 
   // Reduces bundles total size
