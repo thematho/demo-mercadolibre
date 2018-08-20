@@ -1,5 +1,6 @@
 import angular from 'angular';
 import angularResource from 'angular-resource';
+import angularAria from 'angular-aria';
 import uiRouter from '@uirouter/angularjs';
 import Common from './common/common';
 import Components from './components/components';
@@ -11,6 +12,7 @@ import 'normalize.css';
 
 angular.module('app', [
   angularResource,
+  angularAria,
   uiRouter,
   Common,
   Components,

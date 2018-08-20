@@ -1,12 +1,15 @@
 <div class="search-wrapper">
   <a class="search__logo"
+    aria-label="Regresar a pagina principal"
     ui-sref="app"></a>
   <input type="search"
+    aria-label="Ingrese nombre o descripcion de producto a buscar"
     class="search__input"
     ng-attr-placeholder="{{::$ctrl.searchPlaceholder}}"
     ng-model="$ctrl.searchParam"
     on-enter="$ctrl.onAction($ctrl.searchParam)">
   <button class="search-btn"
+    aria-label="Buscar"
     ng-click="$ctrl.onAction($ctrl.searchParam)">
     <i class="search-btn__icon"></i>
   </button>

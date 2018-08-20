@@ -18,18 +18,22 @@ item-details {
   }
   .main-info {
     display: flex;
-    >img {
-      border-radius: $border-radius;
+    .img-wrapper {
       width: $product-img-size;
       min-width: $product-img-size;
       height: $product-img-size;
       min-height: $product-img-size;
+      overflow: hidden;
+      border-radius: $border-radius;
+      text-align: center;
       @include media-st-md() {
         width: $product-img-size-small;
         min-width: $product-img-size-small;
         height: $product-img-size-small;
         min-height: $product-img-size-small;
-
+      }
+      img {
+        width: 100%;
       }
     }
     .header {

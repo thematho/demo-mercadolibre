@@ -3,18 +3,22 @@
 <div class="item-container"
   ng-if="$ctrl.item">
   <div class="main-info">
-    <img ng-src="{{$ctrl.item.picture}}"
-      alt="Imagen de producto">
+    <div class="img-wrapper">
+      <img ng-src="{{$ctrl.item.picture}}"
+        alt="Imagen de producto">
+    </div>
     <div class="header">
       <div class="header__sales">
         {{$ctrl.getConditionText()}}
       </div>
       <div class="header__title">{{$ctrl.item.title}}</div>
-      <div class="header__price">
+      <div class="header__price"
+        ng-attr-aria-label="{{'Precio de producto: '+$ctrl.item.price.amount + ' con ' + $ctrl.item.price.decimals + 'centavos'}}">
         <span>$ {{$ctrl.item.price.amount | number : fractionSize }}</span>
         <span>{{$ctrl.item.price.decimals || '00'}}</span>
       </div>
-      <button class="buy-btn">Comprar</button>
+      <button class="buy-btn"
+        aria-label="Comprar este producto">Comprar</button>
     </div>
   </div>
   <div class="item__description">

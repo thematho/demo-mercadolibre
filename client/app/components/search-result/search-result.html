@@ -2,6 +2,7 @@
 <div class="results-container"
   ng-if="$ctrl.items.length">
   <result-item item="item"
+    ng-attr-aria-label="{{'Seleccione ir a detalles de '+  item.title}}"
     ng-click="::$ctrl.onItemClick(item.id, item.categories)"
     ng-repeat-start="item in $ctrl.items">
   </result-item>
